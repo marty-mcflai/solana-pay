@@ -44,7 +44,7 @@ const post: NextApiHandler<PostResponse> = async (request, response) => {
     if (typeof amountField !== 'string') throw new Error('invalid amount');
     const amount = new BigNumber(amountField);
 
-    const splTokenField = request.query.splToken;
+    const splTokenField = request.query['spl-token'];
     if (splTokenField && typeof splTokenField !== 'string') throw new Error('invalid splToken');
     const splToken = splTokenField ? new PublicKey(splTokenField) : undefined;
 
